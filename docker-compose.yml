@@ -1,0 +1,16 @@
+version: '3.9' # A Docker Compose verziója
+
+services:
+  python_app:
+    build:
+      context: .  # A Dockerfile helye
+      dockerfile: Dockerfile  # A Dockerfile neve
+      args:
+        HUGGINGFACE_TOKEN: ${HUGGINGFACE_TOKEN}
+    volumes:
+      - ./mount:/msllm/codes/mount  # A helyi config könyvtár csatolása a konténerhez
+    env_file: 
+      - .env  # A környezeti változók fájlja
+    ports:
+      - "20249:20249"
+    restart: always  # Automatikus újraindítás, ha a konténer leáll
