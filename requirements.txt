@@ -6,3 +6,6 @@ transformers
 sentence-transformers
 huggingface_hub[cli]
 PyMuPDF
+flask
+llama-index
+llama-index-embeddings-huggingface
